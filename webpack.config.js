@@ -1,3 +1,5 @@
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 /* Basic sections cofigurations
@@ -12,7 +14,8 @@ const path = require('path');
 const commonConfig = {
 	//entry : path.resolve(__dirname, 'src', 'index.js'), // Default
 	output : {
-		path : path.resolve(__dirname, 'build')
+		path : path.resolve(__dirname, 'build'),
+		filename : '[main].[contenthash].js'
 	},
 	module : {
 		rules : [
@@ -28,20 +31,15 @@ const commonConfig = {
 		extensions : ['.js', '.jsx', '.json']
 	},
 	plugins : [
-			
+		new CleanWebpackPlugin(),
+		new HtmlWebpackPlugin({ template : path.resolve(__dirname, 'public', 'index.html') })			
 	]
 }
 
 const proConfig = {
-	output : {
-		filename : '[main].[contenthash].js'
-	}
 }
 
 const devConfig = {
-	output : {
-		filename : 'main.js'
-	}
 }
 
 module.exports = (env, args) => {
