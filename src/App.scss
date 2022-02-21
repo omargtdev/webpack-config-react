@@ -1,0 +1,43 @@
+/* colors */
+$primary-bg : #282c34;
+
+.App {
+	background: $primary-bg;
+	color: #fff;
+  min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: calc(10px + 2vmin);
+}
+
+.title {
+	margin-top: 0
+}
+
+.logo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.logo__img {
+	width: 400px;
+
+	@media (prefers-reduced-motion: no-preference){
+		& {
+    	animation: logo-spin infinite 10s linear;
+		}
+	}
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
